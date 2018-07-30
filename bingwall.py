@@ -43,7 +43,7 @@ def main():
         print_help_message()
 
     # See http://stackoverflow.com/questions/10639914/is-there-a-way-to-get-bings-photo-of-the-day
-    url = 'http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US'
+    url = 'http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-UK'
 
     try:
         response = urllib2.urlopen(url)
@@ -54,7 +54,7 @@ def main():
         else:
             sys.exit('Error in JSON')
 
-        url = 'http://www.bing.com' + images[0]['url']
+        url = 'http://www.bing.com' + images[0]['urlbase'] + '_1920x1080.jpg'
         downloadimage(url, set_background_cmd)
 
     except urllib2.HTTPError, e:
